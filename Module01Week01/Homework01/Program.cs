@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PentaStagiuWeek1
+namespace Homework01
 {
     class Program
     {
