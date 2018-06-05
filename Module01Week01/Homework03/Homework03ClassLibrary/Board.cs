@@ -8,6 +8,36 @@ namespace Homework03ClassLibrary
 {
     public class Board
     {
-        public List<Post> Posts { get; set; }
+        private IMessagesService messagesService;
+
+        public Board(IMessagesService messagesService)
+        {
+            this.messagesService = messagesService;
+        }
+
+        public IEnumerable<Person> GetPersons()
+        {
+            return messagesService.GetPersons();
+        }
+
+        public IEnumerable<Post> GetPostsChronologically()
+        {
+            return messagesService.GetPostsChronologically();
+        }
+
+        public Person AddPerson(string firstName, string lastName, DateTime birthdate, string email)
+        {
+            return null;
+        }
+
+        Person GetPersonByEmail(string email)
+        {
+            return null;
+        }
+
+        Post AddPost(Person author, string message)
+        {
+            return null;
+        }
     }
 }
