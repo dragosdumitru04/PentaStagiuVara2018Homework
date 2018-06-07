@@ -18,7 +18,7 @@ namespace Homework03ClassLibrary
         {
             persons = new List<Person>();
             Person dragos = AddPerson("Dragos", "Dumitru", new DateTime(1992, 04, 03), "dragos.dumitru@gmail.com");
-            Person bogdan = AddPerson("Bogdan", "Drojneanu", new DateTime(1985, 07, 10), "bogdan.radu@gmail.com");
+            Person bogdan = AddPerson("Bogdan", "Radu", new DateTime(1985, 07, 10), "bogdan.radu@gmail.com");
             Person madalina = AddPerson("Madalina", "Iordache", new DateTime(1996, 02, 21), "madalina.iordache@gmail.com");
 
             posts = new List<Post>();
@@ -37,11 +37,18 @@ namespace Homework03ClassLibrary
 
         public List<Person> GetPersons()
         {
-            return null;
+            return persons;
         }
 
         public Person GetPersonByEmail(string email)
         {
+            foreach (Person person in persons)
+            {
+                if (person.Email == email)
+                {
+                    return person;
+                }
+            }
             return null;
         }
 

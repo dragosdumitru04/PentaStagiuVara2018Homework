@@ -27,17 +27,17 @@ namespace Homework03ClassLibrary
 
         public Person AddPerson(string firstName, string lastName, DateTime birthdate, string email)
         {
-            return null;
+            return messagesService.AddPerson(firstName, lastName, birthdate, email);
         }
 
-        Person GetPersonByEmail(string email)
+        public Person GetPersonByEmail(string email)
         {
-            return null;
+            return messagesService.GetPersonByEmail(email);
         }
 
-        Post AddPost(Person author, string message)
+        public Post AddPost(Person author, string message)
         {
-            return null;
+            return messagesService.AddPost(author, message);
         }
     }
 }
