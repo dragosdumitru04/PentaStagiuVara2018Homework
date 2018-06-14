@@ -14,5 +14,7 @@ namespace Homework03ClassLibrary
 
         Post AddPost(Person author, string message);
         List<Post> GetPostsChronologically();
+
+        Post GetPostAtIndex(int index);
     }
 }

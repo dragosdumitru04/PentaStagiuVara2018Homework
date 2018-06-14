@@ -64,5 +64,10 @@ namespace Homework03ClassLibrary
         {
             return posts.OrderBy(p => p.Timestamp).ToList();
         }
+
+        public Post GetPostAtIndex(int index)
+        {
+            return posts[index];
+        }
     }
 }

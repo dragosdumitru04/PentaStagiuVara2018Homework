@@ -37,7 +37,26 @@ namespace Homework03ClassLibrary
 
         public Post AddPost(Person author, string message)
         {
-            return messagesService.AddPost(author, message);
+            var post =  messagesService.AddPost(author, message);
+
+            if (PostAdded != null)
+            {
+                PostAdded(this, post);
+            }
+
+            return post;
         }
+
+
+        public Post this[int index]
+        {
+            get
+            {
+                return messagesService.GetPostAtIndex(index);
+            }
+        }
+
+        public event EventHandler<Post> PostAdded;
+        
     }
 }

@@ -15,6 +15,9 @@ namespace Homework04
         {
             board = new Board(new MessagesService());
 
+            board.PostAdded += Board_PostAdded;
+
+
             while (true)
             {
                 DisplayMenu();
@@ -122,6 +125,12 @@ namespace Homework04
             {
                 DisplayPerson(person);
             }
+        }
+
+        private static void Board_PostAdded(object sender, Post e)
+        {
+            Console.WriteLine("New post added:");
+            DisplayPost(e);
         }
     }
 }
