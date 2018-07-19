@@ -19,6 +19,7 @@ namespace Module02Homework03.Controllers
         // GET: Posts
         public ActionResult Index()
         {
+            ViewBag.MyFirstViewBag = DateTime.Now;
             return View(Posts);
         }
 
@@ -50,6 +51,47 @@ namespace Module02Homework03.Controllers
 
                 return View("Details", post);
             }
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Post post = Posts.Find(p => p.Id == id);
+
+            if (post == null)
+            {
+                return new HttpNotFoundResult();
+            }
+
+            Posts.Remove(post);
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            Post post = Posts.Find(p => p.Id == id);
+
+            if (post == null)
+            {
+                return new HttpNotFoundResult();
+            }
+
+            return View(post);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Post post)
+        {
+            Post postFromList = Posts.Find(p => p.Id == post.Id);
+
+            postFromList.UserId = post.UserId;
+            postFromList.TimeOfPosting = post.TimeOfPosting;
+            postFromList.Message = post.Message;
+            postFromList.PostType = post.PostType;
+            postFromList.IsSticky = post.IsSticky;
+            postFromList.Priority = post.Priority;
+
+            return RedirectToAction("Index");
         }
     }
 }
